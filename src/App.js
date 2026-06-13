@@ -23,34 +23,54 @@ function App() {
     setMessage('');
   };
 
+  // Dashboard View
   if (isLoggedIn) {
     return (
-      <div className="App">
-        <div className="login-container">
-          <h2>Texco Dashboard</h2>
+      <div className="dashboard">
+        <div className="sidebar">
+          <h2>Texco</h2>
 
-          <div style={{ marginTop: '20px' }}>
-            <button style={{ marginBottom: '10px' }}>
-              Employee Management
-            </button>
+          <button>Dashboard</button>
+          <button>Employee Management</button>
+          <button>Reports</button>
+          <button>Settings</button>
 
-            <button style={{ marginBottom: '10px' }}>
-              Reports
-            </button>
+          <button onClick={handleLogout}>
+            Logout
+          </button>
+        </div>
 
-            <button style={{ marginBottom: '10px' }}>
-              Settings
-            </button>
+        <div className="main-content">
+          <h1>Welcome to Texco</h1>
+          <p>Select an option from the menu.</p>
 
-            <button onClick={handleLogout}>
-              Logout
-            </button>
+          <div className="dashboard-cards">
+            <div className="card">
+              <h3>Employees</h3>
+              <p>125</p>
+            </div>
+
+            <div className="card">
+              <h3>Reports</h3>
+              <p>18</p>
+            </div>
+
+            <div className="card">
+              <h3>Pending Tasks</h3>
+              <p>7</p>
+            </div>
+
+            <div className="card">
+              <h3>Settings</h3>
+              <p>Updated</p>
+            </div>
           </div>
         </div>
       </div>
     );
   }
 
+  // Login View
   return (
     <div className="App">
       <div className="login-container">
