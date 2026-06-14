@@ -5,6 +5,7 @@ export default function handler(req, res) {
 
   const { username, password } = req.body;
 
+  // 🔐 TEMP USER DATABASE (for ERP testing)
   const users = [
     { username: "cso1", password: "123", role: "CSO" },
     { username: "ase1", password: "123", role: "ASE" },
@@ -18,11 +19,13 @@ export default function handler(req, res) {
   );
 
   if (!user) {
-    return res.status(401).json({ message: "Invalid credentials" });
+    return res.status(401).json({
+      message: "Invalid credentials",
+    });
   }
 
   return res.status(200).json({
-    token: "demo-token-" + user.role,
+    token: "texco-token-" + user.role,
     username: user.username,
     role: user.role,
   });
